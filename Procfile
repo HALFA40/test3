@@ -1,1 +1,1 @@
-web: node dist/production.js
+web: node dist/index.js
