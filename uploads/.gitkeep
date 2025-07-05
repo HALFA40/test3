@@ -1,0 +1,2 @@
+# This file ensures the uploads directory is included in git
+# The .gitignore file excludes upload content but keeps the directory structure

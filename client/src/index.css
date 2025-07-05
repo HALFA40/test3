@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print Optimization Styles */
+@media print {
+  /* Hide non-essential elements */
+  .sidebar,
+  .print-hide,
+  button,
+  .no-print,
+  nav,
+  .pagination,
+  .filters,
+  .actions-column,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Optimize page layout */
+  body {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Full width for content */
+  .print-full-width {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Table optimization */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    text-align: left !important;
+  }
+
+  th {
+    background-color: #f5f5f5 !important;
+    font-weight: bold !important;
+  }
+
+  /* Headers and titles */
+  h1 {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  h2 {
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+  }
+
+  h3 {
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Page breaks */
+  .page-break-before {
+    page-break-before: always !important;
+  }
+
+  .page-break-after {
+    page-break-after: always !important;
+  }
+
+  .page-break-avoid {
+    page-break-inside: avoid !important;
+  }
+
+  /* Print header */
+  .print-header {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #333 !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* Print footer */
+  .print-footer {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+    border-top: 1px solid #333 !important;
+    padding-top: 10px !important;
+    font-size: 10px !important;
+  }
+
+  /* Compact table for printing */
+  .print-table {
+    font-size: 10px !important;
+  }
+
+  .print-table th,
+  .print-table td {
+    padding: 2px 4px !important;
+    border: 1px solid #ccc !important;
+  }
+
+  /* Status indicators */
+  .status-good::after {
+    content: " ✓" !important;
+  }
+
+  .status-bad::after {
+    content: " ✗" !important;
+  }
+
+  /* Remove shadows and backgrounds */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+
+  /* Ensure text is visible */
+  .text-muted-foreground,
+  .text-gray-500,
+  .text-slate-500 {
+    color: #666 !important;
+  }
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
