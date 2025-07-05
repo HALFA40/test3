@@ -128,7 +128,20 @@ app.use((req, res, next) => {
 
   // Use environment port or default to 5000
   // this serves both the API and the client.
-  const port = parseInt(process.env.PORT || "5000", 10);
+  const portEnv = process.env.PORT || "5000";
+  
+  // Clean and validate port value
+  const cleanPort = portEnv.toString().trim();
+  const port = parseInt(cleanPort, 10);
+  
+  // Validate port is within valid range
+  if (isNaN(port) || port < 0 || port > 65535) {
+    log(`Invalid PORT value: "${portEnv}" (cleaned: "${cleanPort}"). Must be integer between 0 and 65535.`);
+    log(`Port type: ${typeof portEnv}, value: ${JSON.stringify(portEnv)}`);
+    process.exit(1);
+  }
+  
+  log(`Using port: ${port} (from env: "${portEnv}")`);
   
   // Health check endpoint
   app.get('/api/health', (_req, res) => {
